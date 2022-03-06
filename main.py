@@ -133,7 +133,7 @@ class Grid:
                 self.cubes[row][col].draw_change(self.win, True)
                 self.update_model()
                 pygame.display.update()
-                pygame.time.delay(100)
+                pygame.time.delay(100)  # delay affect for better visualizing
 
                 if self.solve_gui():
                     return True
@@ -143,7 +143,7 @@ class Grid:
                 self.update_model()
                 self.cubes[row][col].draw_change(self.win, False)
                 pygame.display.update()
-                pygame.time.delay(100)
+                pygame.time.delay(100) # delay affect for better visualizing
 
         return False
 
@@ -190,7 +190,7 @@ class Cube:
         text = font.render(str(self.value), 1, (0, 0, 0))
         win.blit(text, (x + (gap / 2 - text.get_width() / 2), y + (gap / 2 - text.get_height() / 2)))
         if g:
-            pygame.draw.rect(win, (0, 255, 0), (x, y, gap, gap), 3)  # Green color of cube.
+            pygame.draw.rect(win, (0, 0, 255), (x, y, gap, gap), 3)  # Green color of cube.
         else:
             pygame.draw.rect(win, (255, 0, 0), (x, y, gap, gap), 3)  # Red color of cube while backtracking
 
@@ -205,8 +205,7 @@ def find_empty(bo):  # This method returns the first empty cell
     for i in range(len(bo)):
         for j in range(len(bo[0])):
             if bo[i][j] == 0:
-                return (i, j)  # row, col
-
+                return i, j  # row, col
     return None
 
 
@@ -273,11 +272,12 @@ def play(difficulty):
     board = Grid(9, 9, 540, 540, win, difficulty)
     key = None
     run = True
+    finishTime = -1
     start = time.time()
     strikes = 0
     while run:
 
-        play_time = round(time.time() - start)
+        play_time = finishTime if finishTime != -1 else round(time.time() - start)
 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -325,6 +325,7 @@ def play(difficulty):
 
                 if event.key == pygame.K_SPACE:
                     board.solve_gui()
+                    finishTime = play_time;
 
                 if event.key == pygame.K_RETURN:
                     i, j = board.selected
@@ -359,7 +360,7 @@ def main_menu():
 
         MENU_MOUSE_POS = pygame.mouse.get_pos()
 
-        MENU_TEXT = get_font(50).render("SUDOKU", True, "#b68f40")
+        MENU_TEXT = get_font(80).render("SUDOKU", True, "#b68f40")
         MENU_RECT = MENU_TEXT.get_rect(center=(310, 100))
 
         EASY_BUTTON = Button(image=pygame.image.load("assets/Easy Rect.png"), pos=(280, 250),
