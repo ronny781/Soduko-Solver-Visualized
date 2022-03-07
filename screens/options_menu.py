@@ -7,8 +7,6 @@ from button import Button
 
 
 def options_menu(SCREEN, BG, numOfLives, solveSpeed):
-
-
     while True:
         SCREEN.blit(BG, (0, 0))
 
@@ -18,27 +16,24 @@ def options_menu(SCREEN, BG, numOfLives, solveSpeed):
         MENU_RECT = MENU_TEXT.get_rect(center=(310, 100))
 
         LIVES_BUTTON = Button(image=pygame.image.load("assets/big-heart.png"), pos=(200, 250),
-                             text_input="", font=get_font(75), base_color="#d7fcd4", hovering_color="White")
+                              text_input="", font=get_font(75), base_color="#d7fcd4", hovering_color="White")
 
         font = get_font(75)
         text = font.render(":{}".format(numOfLives), True, (255, 255, 255))
         SCREEN.blit(text, (280, 210))
 
         UP_BUTTON1 = Button(image=pygame.image.load("assets/arrow up.png"), pos=(500, 220),
-                               text_input="", font=get_font(75), base_color="#d7fcd4", hovering_color="White")
+                            text_input="", font=get_font(75), base_color="#d7fcd4", hovering_color="White")
         DOWN_BUTTON1 = Button(image=pygame.image.load("assets/arrow down.png"), pos=(500, 280),
-                             text_input="", font=get_font(75), base_color="#d7fcd4", hovering_color="White")
-
-        # SOLVE_SPEED_BUTTON = Button(image=pygame.image.load("assets/Options Rect.png"), pos=(300, 400),
-        #                    text_input="Auto Solve Speed", font=get_font(30), base_color="#d7fcd4", hovering_color="White")
+                              text_input="", font=get_font(75), base_color="#d7fcd4", hovering_color="White")
 
         SPEED_TEXT = get_font(30).render("Solve Speed:{}".format(solveSpeed), True, "#ffffff")
         SPEED_RECT = SPEED_TEXT.get_rect(center=(240, 380))
 
         UP_BUTTON2 = Button(image=pygame.image.load("assets/arrow up.png"), pos=(500, 350),
-                           text_input="", font=get_font(75), base_color="#d7fcd4", hovering_color="White")
-        DOWN_BUTTON2 = Button(image=pygame.image.load("assets/arrow down.png"), pos=(500, 410),
-                             text_input="", font=get_font(75), base_color="#d7fcd4", hovering_color="White")
+                            text_input="", font=get_font(75), base_color="#d7fcd4", hovering_color="White")
+        DOWN_BUTTON2 =Button(image=pygame.image.load("assets/arrow down.png"), pos=(500, 410),
+                              text_input="", font=get_font(75), base_color="#d7fcd4", hovering_color="White")
 
         SCREEN.blit(SPEED_TEXT, SPEED_RECT)
         SCREEN.blit(MENU_TEXT, MENU_RECT)
@@ -69,10 +64,9 @@ def options_menu(SCREEN, BG, numOfLives, solveSpeed):
                     if solveSpeed > 1:
                         solveSpeed -= 1
 
-
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_ESCAPE:  # Pressing escape redirect to the main menu
-                    return (numOfLives, solveSpeed)
+                    return numOfLives, solveSpeed
             #     if event.key == pygame.K_UP:  # Pressing escape redirect to the main menu
             #         if numOfLives < 7:
             #             numOfLives += 1

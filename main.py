@@ -1,28 +1,24 @@
-import sys
-
+import sys, pygame, time
 
 from Grid import Grid
 from auxiliary_functions import format_time, get_font
 from button import Button
-
-import pygame
-import time
-
 from screens.game_over import game_over
 from screens.options_menu import options_menu
 
-pygame.font.init()
+# pygame.font.init()
 pygame.init()
 
 SCREEN = pygame.display.set_mode((600, 650))
 pygame.display.set_caption("Menu")
 
 BG = pygame.image.load("assets/Background.png")
-numOfLives = 5
+
+numOfLives = 3
 solveSpeed = 2
 
-def redraw_window(win, board, time, lives):
 
+def redraw_window(win, board, time, lives):
     if lives == 0:  # if we run out of lives then show game over screen
         game_over(win, BG)
         return
@@ -38,12 +34,9 @@ def redraw_window(win, board, time, lives):
         heart = pygame.image.load('assets/heart.png')
         win.blit(heart, (20 + i * 50, 560))
 
-   # win.blit(text, (20, 560))
+    # win.blit(text, (20, 560))
     # Draw grid and board
     board.draw()
-
-
-
 
 
 def play(difficulty):
@@ -116,6 +109,7 @@ def play(difficulty):
                             print("Wrong")
                             lives -= 1
                             if lives == 0:
+                                print("Game over")
                                 run = False
                         key = None
 
@@ -134,8 +128,6 @@ def play(difficulty):
 
         redraw_window(win, board, play_time, lives)
         pygame.display.update()
-
-
 
 
 def difficulty_menu():
@@ -180,11 +172,11 @@ def difficulty_menu():
         pygame.display.update()
 
 
-
 def main_menu():
 
     global numOfLives
     global solveSpeed
+
     while True:
         SCREEN.blit(BG, (0, 0))
 
@@ -196,7 +188,7 @@ def main_menu():
         PLAY_BUTTON = Button(image=pygame.image.load("assets/Easy Rect.png"), pos=(280, 250),
                              text_input="Play", font=get_font(75), base_color="#d7fcd4", hovering_color="White")
         OPTIONS_BUTTON = Button(image=pygame.image.load("assets/Options Rect.png"), pos=(300, 400),
-                               text_input="Options", font=get_font(75), base_color="#d7fcd4", hovering_color="White")
+                                text_input="Options", font=get_font(75), base_color="#d7fcd4", hovering_color="White")
         QUIT_BUTTON = Button(image=pygame.image.load("assets/Hard Rect.png"), pos=(280, 550),
                              text_input="Quit", font=get_font(75), base_color="#d7fcd4", hovering_color="White")
 
@@ -214,7 +206,7 @@ def main_menu():
                 if PLAY_BUTTON.checkForInput(MENU_MOUSE_POS):
                     difficulty_menu()
                 if OPTIONS_BUTTON.checkForInput(MENU_MOUSE_POS):
-                    (numOfLives, solveSpeed) = options_menu(SCREEN,BG, numOfLives, solveSpeed)
+                    (numOfLives, solveSpeed) = options_menu(SCREEN, BG, numOfLives, solveSpeed)
                 if QUIT_BUTTON.checkForInput(MENU_MOUSE_POS):
                     pygame.quit()
                     sys.exit()
@@ -223,4 +215,3 @@ def main_menu():
 
 
 main_menu()
-
