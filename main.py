@@ -16,15 +16,24 @@ pygame.display.set_caption("Menu")
 
 BG = pygame.image.load("assets/Background.png")
 
-def redraw_window(win, board, time, strikes):
+def redraw_window(win, board, time, lives):
+
+    if lives == 0:  # if we run out of lives
+        game_over(win)
+        return
+
     win.fill((255, 255, 255))
     # Draw time
     font = pygame.font.SysFont("comicsans", 40)
     text = font.render("Time: " + format_time(time), True, (0, 0, 0))
     win.blit(text, (540 - 160, 560))
-    # Draw Strikes
-    text = font.render("X " * strikes, True, (255, 0, 0))
-    win.blit(text, (20, 560))
+
+    # Draw Lives
+    for i in range(lives):
+        heart = pygame.image.load('assets/heart.png')
+        win.blit(heart, (20 + i * 50, 560))
+
+   # win.blit(text, (20, 560))
     # Draw grid and board
     board.draw()
 
@@ -54,7 +63,7 @@ def play(difficulty):
     run = True
     finishTime = -1
     start = time.time()
-    strikes = 0
+    lives = 5
     while run:
 
         play_time = finishTime if finishTime != -1 else round(time.time() - start)
@@ -114,7 +123,9 @@ def play(difficulty):
                             print("Success")
                         else:
                             print("Wrong")
-                            strikes += 1
+                            lives -= 1
+                            if lives == 0:
+                                run = False
                         key = None
 
                         if board.is_finished():
@@ -130,9 +141,17 @@ def play(difficulty):
         if board.selected and key is not None:
             board.sketch(key)
 
-        redraw_window(win, board, play_time, strikes)
+        redraw_window(win, board, play_time, lives)
         pygame.display.update()
 
+
+def game_over(win):
+    win.blit(BG, (0, 0))
+    MENU_TEXT = get_font(50).render("GAME OVER", True, "#a10328")
+    MENU_RECT = MENU_TEXT.get_rect(center=(310, 300))
+    win.blit(MENU_TEXT, MENU_RECT)
+    pygame.display.update()
+    pygame.time.delay(2000)
 
 def main_menu():
     while True:
