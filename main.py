@@ -2,11 +2,13 @@ import sys
 
 
 from Grid import Grid
+from auxiliary_functions import format_time, get_font
 from button import Button
 
 import pygame
 import time
 
+from screens.game_over import game_over
 
 pygame.font.init()
 pygame.init()
@@ -20,7 +22,7 @@ numOfLives = 5
 def redraw_window(win, board, time, lives):
 
     if lives == 0:  # if we run out of lives then show game over screen
-        game_over(win)
+        game_over(win, BG)
         return
 
     win.fill((255, 255, 255))
@@ -39,21 +41,7 @@ def redraw_window(win, board, time, lives):
     board.draw()
 
 
-def format_time(secs):
-    sec = secs % 60
-    minute = secs // 60
-    hour = minute // 60
 
-    secString = str(sec)
-    if sec < 10:
-        secString = "0" + secString
-
-    mat = " " + str(minute) + ":" + secString
-    return mat
-
-
-def get_font(size):  # Returns Press-Start-2P in the desired size
-    return pygame.font.Font("assets/font.ttf", size)
 
 
 def play(difficulty):
@@ -146,13 +134,7 @@ def play(difficulty):
         pygame.display.update()
 
 
-def game_over(win):
-    win.blit(BG, (0, 0))
-    MENU_TEXT = get_font(50).render("GAME OVER", True, "#a10328")
-    MENU_RECT = MENU_TEXT.get_rect(center=(310, 300))
-    win.blit(MENU_TEXT, MENU_RECT)
-    pygame.display.update()
-    pygame.time.delay(2000)
+
 
 def difficulty_menu():
     while True:
