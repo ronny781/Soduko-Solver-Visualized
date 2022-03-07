@@ -3,13 +3,14 @@ from Cube import Cube
 import boards
 
 
-
 class Grid:
+    speedConverter = {5: 0, 4: 10, 3: 25, 2: 50, 1: 100}
 
-    def __init__(self, rows, cols, width, height, win, difficulty):
+    def __init__(self, rows, cols, width, height, win, difficulty, solveSpeed):
+
         self.rows = rows
         self.cols = cols
-
+        self.solveSpeed = Grid.speedConverter[solveSpeed]
         self.board = boards.retrieveRandomBoard(difficulty)
         # Constructs (row X column) cube elements and match their values to the board.
         self.cubes = [[Cube(self.board[i][j], i, j, width, height) for j in range(cols)] for i in range(rows)]
@@ -129,7 +130,7 @@ class Grid:
                 self.cubes[row][col].draw_change(self.win, True)
                 self.update_model()
                 pygame.display.update()
-                pygame.time.delay(100)  # delay affect for better visualizing
+                pygame.time.delay(self.solveSpeed)  # delay affect for better visualizing
 
                 if self.solve_gui():
                     return True
@@ -139,10 +140,9 @@ class Grid:
                 self.update_model()
                 self.cubes[row][col].draw_change(self.win, False)
                 pygame.display.update()
-                pygame.time.delay(100) # delay affect for better visualizing
+                pygame.time.delay(self.solveSpeed)  # delay affect for better visualizing
 
         return False
-
 
 
 def find_empty(bo):  # This method returns the first empty cell

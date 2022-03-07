@@ -19,6 +19,7 @@ pygame.display.set_caption("Menu")
 
 BG = pygame.image.load("assets/Background.png")
 numOfLives = 5
+solveSpeed = 2
 
 def redraw_window(win, board, time, lives):
 
@@ -48,7 +49,7 @@ def redraw_window(win, board, time, lives):
 def play(difficulty):
     win = pygame.display.set_mode((600, 650))
     pygame.display.set_caption("Sudoku")
-    board = Grid(9, 9, 540, 540, win, difficulty)
+    board = Grid(9, 9, 540, 540, win, difficulty, solveSpeed)
     key = None
     run = True
     finishTime = -1
@@ -166,7 +167,7 @@ def difficulty_menu():
 
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_ESCAPE:  # Pressing escape redirect to the main menu
-                    main_menu()
+                    return
 
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if EASY_BUTTON.checkForInput(MENU_MOUSE_POS):
@@ -183,6 +184,7 @@ def difficulty_menu():
 def main_menu():
 
     global numOfLives
+    global solveSpeed
     while True:
         SCREEN.blit(BG, (0, 0))
 
@@ -212,7 +214,7 @@ def main_menu():
                 if PLAY_BUTTON.checkForInput(MENU_MOUSE_POS):
                     difficulty_menu()
                 if OPTIONS_BUTTON.checkForInput(MENU_MOUSE_POS):
-                    numOfLives = options_menu(SCREEN,BG, numOfLives)
+                    (numOfLives, solveSpeed) = options_menu(SCREEN,BG, numOfLives, solveSpeed)
                 if QUIT_BUTTON.checkForInput(MENU_MOUSE_POS):
                     pygame.quit()
                     sys.exit()
