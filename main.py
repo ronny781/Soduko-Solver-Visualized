@@ -18,7 +18,7 @@ BG = pygame.image.load("assets/Background.png")
 
 def redraw_window(win, board, time, lives):
 
-    if lives == 0:  # if we run out of lives
+    if lives == 0:  # if we run out of lives then show game over screen
         game_over(win)
         return
 
@@ -153,7 +153,7 @@ def game_over(win):
     pygame.display.update()
     pygame.time.delay(2000)
 
-def main_menu():
+def difficulty_menu():
     while True:
         SCREEN.blit(BG, (0, 0))
 
@@ -179,6 +179,11 @@ def main_menu():
             if event.type == pygame.QUIT:
                 pygame.quit()
                 sys.exit()
+
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_ESCAPE:  # Pressing escape redirect to the main menu
+                    main_menu()
+
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if EASY_BUTTON.checkForInput(MENU_MOUSE_POS):
                     play("easy")
@@ -189,5 +194,42 @@ def main_menu():
 
         pygame.display.update()
 
+def main_menu():
+    while True:
+        SCREEN.blit(BG, (0, 0))
+
+        MENU_MOUSE_POS = pygame.mouse.get_pos()
+
+        MENU_TEXT = get_font(80).render("SUDOKU", True, "#b68f40")
+        MENU_RECT = MENU_TEXT.get_rect(center=(310, 100))
+
+        PLAY_BUTTON = Button(image=pygame.image.load("assets/Easy Rect.png"), pos=(280, 250),
+                             text_input="Play", font=get_font(75), base_color="#d7fcd4", hovering_color="White")
+        OPTIONS_BUTTON = Button(image=pygame.image.load("assets/Medium Rect.png"), pos=(300, 400),
+                               text_input="Options", font=get_font(75), base_color="#d7fcd4", hovering_color="White")
+        QUIT_BUTTON = Button(image=pygame.image.load("assets/Hard Rect.png"), pos=(280, 550),
+                             text_input="Quit", font=get_font(75), base_color="#d7fcd4", hovering_color="White")
+
+        SCREEN.blit(MENU_TEXT, MENU_RECT)
+
+        for button in [PLAY_BUTTON, OPTIONS_BUTTON, QUIT_BUTTON]:
+            button.changeColor(MENU_MOUSE_POS)
+            button.update(SCREEN)
+
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                sys.exit()
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                if PLAY_BUTTON.checkForInput(MENU_MOUSE_POS):
+                    difficulty_menu()
+                if OPTIONS_BUTTON.checkForInput(MENU_MOUSE_POS):
+                    play("medium")
+                if QUIT_BUTTON.checkForInput(MENU_MOUSE_POS):
+                    pygame.quit()
+                    sys.exit()
+
+        pygame.display.update()
 
 main_menu()
+
