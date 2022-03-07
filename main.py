@@ -1,4 +1,4 @@
-import pygame, sys
+import sys
 
 
 from Grid import Grid
