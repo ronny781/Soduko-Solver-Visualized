@@ -7,6 +7,8 @@ from screens.game_over import game_over
 from screens.options_menu import options_menu
 
 # pygame.font.init()
+from screens.winning_screen import you_won
+
 pygame.init()
 
 SCREEN = pygame.display.set_mode((600, 650))
@@ -115,6 +117,8 @@ def play(difficulty):
 
                         if board.is_finished():
                             print("Game over")
+                            you_won(win, BG)
+                            run = False
 
             if event.type == pygame.MOUSEBUTTONDOWN:
                 pos = pygame.mouse.get_pos()
