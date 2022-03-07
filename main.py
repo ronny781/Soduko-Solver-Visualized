@@ -15,6 +15,7 @@ SCREEN = pygame.display.set_mode((600, 650))
 pygame.display.set_caption("Menu")
 
 BG = pygame.image.load("assets/Background.png")
+numOfLives = 5
 
 def redraw_window(win, board, time, lives):
 
@@ -63,7 +64,7 @@ def play(difficulty):
     run = True
     finishTime = -1
     start = time.time()
-    lives = 5
+    lives = numOfLives
     while run:
 
         play_time = finishTime if finishTime != -1 else round(time.time() - start)
@@ -194,6 +195,57 @@ def difficulty_menu():
 
         pygame.display.update()
 
+
+def options_menu():
+
+    global numOfLives
+
+    while True:
+        SCREEN.blit(BG, (0, 0))
+
+        MENU_MOUSE_POS = pygame.mouse.get_pos()
+
+        MENU_TEXT = get_font(80).render("OPTIONS", True, "#b68f40")
+        MENU_RECT = MENU_TEXT.get_rect(center=(310, 100))
+
+        LIVES_BUTTON = Button(image=pygame.image.load("assets/big-heart.png"), pos=(200, 250),
+                             text_input="", font=get_font(75), base_color="#d7fcd4", hovering_color="White")
+
+        font = get_font(75)
+        text = font.render(":{}".format(numOfLives), True, (255, 255, 255))
+        SCREEN.blit(text, (280, 210))
+
+        # UP_BUTTON = Button(image=pygame.image.load("assets/Hard Rect.png"), pos=(250, 250),
+        #                        text_input="", font=get_font(75), base_color="#d7fcd4", hovering_color="White")
+        # DOWN_BUTTON = Button(image=pygame.image.load("assets/Hard Rect.png"), pos=(250, 170),
+        #                      text_input="", font=get_font(75), base_color="#d7fcd4", hovering_color="White")
+
+        SCREEN.blit(MENU_TEXT, MENU_RECT)
+
+        for button in [LIVES_BUTTON]:
+            button.changeColor(MENU_MOUSE_POS)
+            button.update(SCREEN)
+
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                sys.exit()
+
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_ESCAPE:  # Pressing escape redirect to the main menu
+                    main_menu()
+                if event.key == pygame.K_UP:  # Pressing escape redirect to the main menu
+                    if numOfLives < 7:
+                        numOfLives += 1
+                        LIVES_BUTTON.update(SCREEN)
+                if event.key == pygame.K_DOWN:  # Pressing escape redirect to the main menu
+                    if numOfLives > 1:
+                        numOfLives -= 1
+                        LIVES_BUTTON.update(SCREEN)
+
+        pygame.display.update()
+
+
 def main_menu():
     while True:
         SCREEN.blit(BG, (0, 0))
@@ -205,7 +257,7 @@ def main_menu():
 
         PLAY_BUTTON = Button(image=pygame.image.load("assets/Easy Rect.png"), pos=(280, 250),
                              text_input="Play", font=get_font(75), base_color="#d7fcd4", hovering_color="White")
-        OPTIONS_BUTTON = Button(image=pygame.image.load("assets/Medium Rect.png"), pos=(300, 400),
+        OPTIONS_BUTTON = Button(image=pygame.image.load("assets/Options Rect.png"), pos=(300, 400),
                                text_input="Options", font=get_font(75), base_color="#d7fcd4", hovering_color="White")
         QUIT_BUTTON = Button(image=pygame.image.load("assets/Hard Rect.png"), pos=(280, 550),
                              text_input="Quit", font=get_font(75), base_color="#d7fcd4", hovering_color="White")
@@ -224,12 +276,13 @@ def main_menu():
                 if PLAY_BUTTON.checkForInput(MENU_MOUSE_POS):
                     difficulty_menu()
                 if OPTIONS_BUTTON.checkForInput(MENU_MOUSE_POS):
-                    play("medium")
+                    options_menu()
                 if QUIT_BUTTON.checkForInput(MENU_MOUSE_POS):
                     pygame.quit()
                     sys.exit()
 
         pygame.display.update()
+
 
 main_menu()
 
