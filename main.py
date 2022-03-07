@@ -19,11 +19,11 @@ BG = pygame.image.load("assets/Background.png")
 def redraw_window(win, board, time, strikes):
     win.fill((255, 255, 255))
     # Draw time
-    fnt = pygame.font.SysFont("comicsans", 40)
-    text = fnt.render("Time: " + format_time(time), True, (0, 0, 0))
+    font = pygame.font.SysFont("comicsans", 40)
+    text = font.render("Time: " + format_time(time), True, (0, 0, 0))
     win.blit(text, (540 - 160, 560))
     # Draw Strikes
-    text = fnt.render("X " * strikes, True, (255, 0, 0))
+    text = font.render("X " * strikes, True, (255, 0, 0))
     win.blit(text, (20, 560))
     # Draw grid and board
     board.draw()
@@ -34,7 +34,11 @@ def format_time(secs):
     minute = secs // 60
     hour = minute // 60
 
-    mat = " " + str(minute) + ":" + str(sec)
+    secString = str(sec)
+    if sec < 10:
+        secString = "0" + secString
+
+    mat = " " + str(minute) + ":" + secString
     return mat
 
 
