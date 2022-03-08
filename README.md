@@ -16,6 +16,13 @@
         <li><a href="#how-does-the-solver-work">How does the solver work?</a></li>
       </ul>
     </li>
+      <li>
+      <a href="#getting-started">Getting started</a>
+      <ul>
+        <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#instructions">Instructions</a></li>
+      </ul>
+    </li>
        <li>
       <a href="#gui">GUI</a>
       <ul>
@@ -28,13 +35,6 @@
       </ul>
     </li>
      </li>
-       <li>
-      <a href="#getting-started">Getting started</a>
-      <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#instructions">Instructions</a></li>
-      </ul>
-    </li>
   </ol>
 </details>
 
@@ -60,7 +60,21 @@ The game starts after the user choose difficulty level,</br> then the program se
 
 <p align="right">(<a href="#about-the-project">back to top</a>)</p>
 
+<!-- GETTING STARTED -->
+## Getting Started
 
+### Prerequisites:</br>
+Make sure you have installed python interpreter and pygame on your machine.</br>
+
+### Instructions:</br>
+
+To play the game download the project and run the main.py file.</br>
+For playing choose play on the main menu and select a difficulty level.</br>
+To initiate the auto solver, press 'SPACE'.</br>
+Note: to navigate backwards between screens, press 'ESC'
+
+
+<p align="right">(<a href="#about-the-project">back to top</a>)</p>
 
 <!-- Auto Solver -->
 ## Auto Solver
@@ -104,19 +118,5 @@ The game screen features a clock and also renders left lives.
 
 <p align="right">(<a href="#about-the-project">back to top</a>)</p>
 
-<!-- GETTING STARTED -->
-## Getting Started
 
-### Prerequisites:</br>
-Make sure you have installed python interpreter and pygame on your machine.</br>
-
-### Instructions:</br>
-
-To play the game download the project and run the main.py file.</br>
-For playing choose play on the main menu and select a difficulty level.</br>
-To initiate the auto solver, press 'SPACE'.</br>
-Note: to navigate backwards between screens, press 'ESC'
-
-
-<p align="right">(<a href="#about-the-project">back to top</a>)</p>
 
