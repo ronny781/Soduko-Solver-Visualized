@@ -83,7 +83,7 @@ Note: to navigate backwards between screens, press <b> 'ESC' </b>
 ### How does the solver work?
 
 The program first seeks an empty cell, then attempts to insert a valid number in the order of 1 to 9. </br>
-The program does this until the puzzle is stuck. Then it runs a backtracking DFS search to "try out" the other possibilities,</br> eliminating those (and its children) that doesn't work.
+The program does this until the puzzle is stuck (none of 1-9 numbers can be inserted).</br> Then it runs a backtracking DFS search to "try out" the other possibilities,</br> eliminating those (and its children) that doesn't work.
 
 ### Note:
 This project has been created for educational purposes only,</br>
