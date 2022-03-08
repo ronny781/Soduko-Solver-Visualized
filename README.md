@@ -50,8 +50,6 @@ A sudoku game that includes GUI consist with multiple screens,</br> supports 3 d
 The game starts after the user choose difficulty level,</br> then the program sends <b> GET request </b> to a <a href="https://github.com/bertoort/sugoku">sudoku board generator API</a> in order to fetch a </br> random board with the corresponding difficulty level.</br> The response received as <b> JSON </b> object that then gets parsed into a two-dimensional array.
 
 
-<p align="right">(<a href="#about-the-project">back to top</a>)</p>
-
 
 ### Technologies used:
 
