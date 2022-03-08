@@ -15,10 +15,10 @@ def options_menu(SCREEN, BG, numOfLives, solveSpeed):
         MENU_TEXT = get_font(80).render("OPTIONS", True, "#b68f40")
         MENU_RECT = MENU_TEXT.get_rect(center=(310, 100))
 
-        LIVES_BUTTON = Button(image=pygame.image.load("assets/big-heart.png"), pos=(200, 250),
+        LIVES_BUTTON = Button(image=pygame.image.load("assets/big-heart.png"), pos=(200, 230),
                               text_input="", font=get_font(75), base_color="#d7fcd4", hovering_color="White")
 
-        font = get_font(75)
+        font = get_font(60)
         text = font.render(":{}".format(numOfLives), True, (255, 255, 255))
         SCREEN.blit(text, (280, 210))
 

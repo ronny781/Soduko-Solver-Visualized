@@ -100,7 +100,10 @@ def play(difficulty):
 
                 if event.key == pygame.K_SPACE:
                     board.solve_gui()
-                    finishTime = play_time;
+                    finishTime = play_time
+                    # run = False
+                    # you_won(win, BG)
+
 
                 if event.key == pygame.K_RETURN:
                     i, j = board.selected
@@ -116,7 +119,7 @@ def play(difficulty):
                         key = None
 
                         if board.is_finished():
-                            print("Game over")
+                            print("You won")
                             you_won(win, BG)
                             run = False
 
