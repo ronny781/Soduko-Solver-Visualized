@@ -67,7 +67,7 @@ Make sure you have installed python interpreter and pygame on your machine.</br>
 
 ### Instructions:</br>
 
-To play the game download the project and run the main.py file.</br>
+Download the project and run the main.py file.</br>
 For playing choose play on the main menu and select a difficulty level.</br>
 To initiate the auto solver, press <b> 'SPACE' </b>.</br>
 Note: to navigate backwards between screens, press <b> 'ESC' </b>
