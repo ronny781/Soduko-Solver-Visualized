@@ -10,17 +10,17 @@
         <li><a href="#technologies-used">Technologies used</a></li>
       </ul>
     </li>
-    <li>
-      <a href="#auto-solver">Auto Solver</a>
-      <ul>
-        <li><a href="#how-does-the-solver-work">How does the solver work?</a></li>
-      </ul>
-    </li>
       <li>
       <a href="#getting-started">Getting started</a>
       <ul>
         <li><a href="#prerequisites">Prerequisites</a></li>
         <li><a href="#instructions">Instructions</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#auto-solver">Auto Solver</a>
+      <ul>
+        <li><a href="#how-does-the-solver-work">How does the solver work?</a></li>
       </ul>
     </li>
        <li>
