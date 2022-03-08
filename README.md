@@ -21,6 +21,7 @@
       <a href="#auto-solver">Auto Solver</a>
       <ul>
         <li><a href="#how-does-the-solver-work">How does the solver work?</a></li>
+         <li><a href="#note">Auto solver implementation focus</a></li>
       </ul>
     </li>
        <li>
@@ -46,7 +47,7 @@ A sudoku game that includes GUI consist with multiple screens,</br> supports 3 d
 
 ![](https://media.giphy.com/media/bAL5IUsjvch93SaytW/giphy.gif)
 
-The game starts after the user choose difficulty level,</br> then the program sends GET request to a sudoku board generator API in order to fetch a </br> random board with the corresponding difficulty level.</br> The response received as JSON object that then gets parsed into a two-dimensional array.
+The game starts after the user choose difficulty level,</br> then the program sends <b> GET request </b> to a <a href="https://github.com/bertoort/sugoku">sudoku board generator API</a> in order to fetch a </br> random board with the corresponding difficulty level.</br> The response received as <b> JSON </b> object that then gets parsed into a two-dimensional array.
 
 
 <p align="right">(<a href="#about-the-project">back to top</a>)</p>
@@ -70,8 +71,8 @@ Make sure you have installed python interpreter and pygame on your machine.</br>
 
 To play the game download the project and run the main.py file.</br>
 For playing choose play on the main menu and select a difficulty level.</br>
-To initiate the auto solver, press 'SPACE'.</br>
-Note: to navigate backwards between screens, press 'ESC'
+To initiate the auto solver, press <b> 'SPACE' </b>.</br>
+Note: to navigate backwards between screens, press <b> 'ESC' </b>
 
 
 <p align="right">(<a href="#about-the-project">back to top</a>)</p>
@@ -85,6 +86,11 @@ Note: to navigate backwards between screens, press 'ESC'
 
 The program first seeks an empty cell, then attempts to insert a valid number in the order of 1 to 9. </br>
 The program does this until the puzzle is stuck. Then it runs a backtracking DFS search to "try out" the other possibilities,</br> eliminating those (and its children) that doesn't work.
+
+### Note:
+This project has been created for educational purposes only,</br>
+and to visualize the backtracking in a "reasonable" speed for the human eye to watch.</br>
+Therefore, there wasn't <b> any effort </b> of solving the board with efficient run time.
 
 <p align="right">(<a href="#about-the-project">back to top</a>)</p>
 
