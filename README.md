@@ -98,7 +98,7 @@ Therefore, there wasn't <b> any effort </b> of solving the board with efficient 
 <img src="images/main menu.png" height="450px" width="450px">
 
 ### Options Menu
-<img src="images/options menu.png" height="450px" width="450px">
+<img src="images/options menu screen.png" height="450px" width="450px">
 
 The number of "lives" (number of mistakes you can make) can be set between 1 to 7.</br>
 The speed of the auto solver visualization can be set between 1 to 5, where 5 is the fastest (without delay).</br>
