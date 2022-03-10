@@ -42,7 +42,7 @@ class Cube:
         text = font.render(str(self.value), 1, (0, 0, 0))
         win.blit(text, (x + (gap / 2 - text.get_width() / 2), y + (gap / 2 - text.get_height() / 2)))
         if g:
-            pygame.draw.rect(win, (0, 0, 255), (x, y, gap, gap), 3)  # Green color of cube.
+            pygame.draw.rect(win, (0, 0, 255), (x, y, gap, gap), 3)  # Blue color of cube.
         else:
             pygame.draw.rect(win, (255, 0, 0), (x, y, gap, gap), 3)  # Red color of cube while backtracking
 

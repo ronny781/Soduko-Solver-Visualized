@@ -67,13 +67,6 @@ def options_menu(SCREEN, BG, numOfLives, solveSpeed):
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_ESCAPE:  # Pressing escape redirect to the main menu
                     return numOfLives, solveSpeed
-            #     if event.key == pygame.K_UP:  # Pressing escape redirect to the main menu
-            #         if numOfLives < 7:
-            #             numOfLives += 1
-            #             LIVES_BUTTON.update(SCREEN)
-            #     if event.key == pygame.K_DOWN:  # Pressing escape redirect to the main menu
-            #         if numOfLives > 1:
-            #             numOfLives -= 1
-            #             LIVES_BUTTON.update(SCREEN)
+
 
         pygame.display.update()

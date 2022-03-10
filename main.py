@@ -5,8 +5,6 @@ from auxiliary_functions import format_time, get_font
 from button import Button
 from screens.game_over import game_over
 from screens.options_menu import options_menu
-
-# pygame.font.init()
 from screens.winning_screen import you_won
 
 pygame.init()
@@ -26,6 +24,7 @@ def redraw_window(win, board, time, lives):
         return
 
     win.fill((255, 255, 255))
+
     # Draw time
     font = pygame.font.SysFont("comicsans", 40)
     text = font.render("Time: " + format_time(time), True, (0, 0, 0))
@@ -36,7 +35,6 @@ def redraw_window(win, board, time, lives):
         heart = pygame.image.load('assets/heart.png')
         win.blit(heart, (20 + i * 50, 560))
 
-    # win.blit(text, (20, 560))
     # Draw grid and board
     board.draw()
 
@@ -101,9 +99,6 @@ def play(difficulty):
                 if event.key == pygame.K_SPACE:
                     board.solve_gui()
                     finishTime = play_time
-                    # run = False
-                    # you_won(win, BG)
-
 
                 if event.key == pygame.K_RETURN:
                     i, j = board.selected

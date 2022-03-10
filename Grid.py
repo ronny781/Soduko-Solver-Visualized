@@ -1,6 +1,6 @@
 import pygame
 from Cube import Cube
-import boards
+import boardFetcher
 
 
 class Grid:
@@ -11,7 +11,7 @@ class Grid:
         self.rows = rows
         self.cols = cols
         self.solveSpeed = Grid.speedConverter[solveSpeed]
-        self.board = boards.retrieveRandomBoard(difficulty)
+        self.board = boardFetcher.retrieveRandomBoard(difficulty)
         # Constructs (row X column) cube elements and match their values to the board.
         self.cubes = [[Cube(self.board[i][j], i, j, width, height) for j in range(cols)] for i in range(rows)]
 
