@@ -15,7 +15,7 @@ def no_connection(win, BG):  # This screen rendered when there is no internet co
         text = get_font(45).render("No internet!", True, "#a10328")
         rect = text.get_rect(center=(310, 150))
 
-        RETRY_BUTTON = Button(image=pygame.image.load("assets/Hard Rect.png"), pos=(280, 450),
+        RETRY_BUTTON = Button(image=pygame.image.load("assets/Small Rect.png"), pos=(280, 450),
                               text_input="Retry", font=get_font(40), base_color="#d7fcd4", hovering_color="White")
 
         OFFLINE_BUTTON = Button(image=pygame.image.load("assets/Medium Rect.png"), pos=(300, 300),

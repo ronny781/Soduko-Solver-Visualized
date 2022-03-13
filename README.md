@@ -50,7 +50,8 @@ A sudoku game that includes GUI consist with multiple screens,</br> supports 3 d
 The game starts after the user choose difficulty level,</br> then the program sends <b> GET request </b> to a <a href="https://github.com/bertoort/sugoku">sudoku board generator API</a> in order to fetch a </br> random board with the corresponding difficulty level.</br> The response received as <b> JSON </b> object that then gets parsed into a two-dimensional array.
 
 <b> Edit: </b> </br>
-<b> Offline Mode added </b> - If there is no internet connection, then,<a href="#no-internet-screen"> according screen </a> will be rendered that would offer the user to play in offline mode.</br>
+
+<b> Offline Mode added: </b></br>If there is no internet connection, then,<a href="#no-internet-screen"> according screen </a> will be rendered that would offer the user to play in offline mode.</br>
 The offline mode consists of 10 boards for each difficulty level, and will render a random one in accordance with the user request.
 
 ### Technologies used:
