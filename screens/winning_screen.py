@@ -1,6 +1,6 @@
 import pygame
 
-from auxiliary_functions import get_font
+from components.auxiliary_functions import get_font
 
 
 def you_won(win, BG):

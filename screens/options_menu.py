@@ -2,8 +2,8 @@ import sys
 
 import pygame
 
-from auxiliary_functions import get_font
-from button import Button
+from components.auxiliary_functions import get_font
+from components.button import Button
 
 
 def options_menu(SCREEN, BG, numOfLives, solveSpeed):

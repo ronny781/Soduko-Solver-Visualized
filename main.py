@@ -1,9 +1,9 @@
 import sys, pygame, time
 
-import boardFetcher
-from Grid import Grid
-from auxiliary_functions import format_time, get_font
-from button import Button
+from components import boardFetcher
+from components.Grid import Grid
+from components.auxiliary_functions import format_time, get_font
+from components.button import Button
 from screens.game_over import game_over
 from screens.loadingScreen import loading_screen
 from screens.no_connection_screen import no_connection

@@ -2,8 +2,8 @@ import sys
 
 import pygame
 
-from auxiliary_functions import get_font
-from button import Button
+from components.auxiliary_functions import get_font
+from components.button import Button
 
 
 def no_connection(win, BG):  # This screen rendered when there is no internet connection
