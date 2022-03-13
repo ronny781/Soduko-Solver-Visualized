@@ -12,18 +12,19 @@ def no_connection(win, BG):
 
         MOUSE_POS = pygame.mouse.get_pos()
 
-        text = get_font(30).render("No internet!", True, "#a10328")
+        text = get_font(45).render("No internet!", True, "#a10328")
         rect = text.get_rect(center=(310, 150))
 
-        RETRY_BUTTON = Button(image=pygame.image.load("assets/Medium Rect.png"), pos=(280, 550),
+        RETRY_BUTTON = Button(image=pygame.image.load("assets/Hard Rect.png"), pos=(280, 450),
                               text_input="Retry", font=get_font(40), base_color="#d7fcd4", hovering_color="White")
 
-        OFFLINE_BUTTON = Button(image=pygame.image.load("assets/Options Rect.png"), pos=(280, 300),
-                              text_input="Offline Mode", font=get_font(40), base_color="#d7fcd4", hovering_color="White")
+        OFFLINE_BUTTON = Button(image=pygame.image.load("assets/Options Rect.png"), pos=(300, 300),
+                                text_input="Offline Mode", font=get_font(40), base_color="#d7fcd4",
+                                hovering_color="White")
 
         win.blit(text, rect)
 
-        for button in [RETRY_BUTTON,OFFLINE_BUTTON]:
+        for button in [RETRY_BUTTON, OFFLINE_BUTTON]:
             button.changeColor(MOUSE_POS)
             button.update(win)
 
@@ -39,5 +40,3 @@ def no_connection(win, BG):
                     return "Offline_Mode"
 
         pygame.display.update()
-
-
