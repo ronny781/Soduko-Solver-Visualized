@@ -6,12 +6,12 @@ import boardFetcher
 class Grid:
     speedConverter = {5: 0, 4: 10, 3: 25, 2: 50, 1: 100}
 
-    def __init__(self, rows, cols, width, height, win, difficulty, solveSpeed):
+    def __init__(self, rows, cols, width, height, win, requestedBoard, solveSpeed):
 
         self.rows = rows
         self.cols = cols
         self.solveSpeed = Grid.speedConverter[solveSpeed]
-        self.board = boardFetcher.retrieveRandomBoard(difficulty)
+        self.board = requestedBoard
         # Constructs (row X column) cube elements and match their values to the board.
         self.cubes = [[Cube(self.board[i][j], i, j, width, height) for j in range(cols)] for i in range(rows)]
 
