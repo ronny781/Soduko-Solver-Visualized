@@ -42,7 +42,7 @@ def redraw_window(win, board, time, lives):
     board.draw()
 
 
-def play(difficulty):
+def start_game(difficulty):
     win = pygame.display.set_mode((600, 650))
     pygame.display.set_caption("Sudoku")
 
@@ -50,8 +50,19 @@ def play(difficulty):
     requestedBoard = boardFetcher.retrieveRandomBoard(difficulty)
 
     if requestedBoard is None:
-        no_connection(win,BG)
+        operation = no_connection(win, BG)
+        if operation == "Retry":
+            start_game(difficulty)
+        elif operation == "Offline_Mode":
+            play(win, boardFetcher.retrieveRandomBoard_offline(difficulty))
         return
+
+    else:
+        play(win, requestedBoard)
+
+
+
+def play(win, requestedBoard):
 
     board = Grid(9, 9, 540, 540, win, requestedBoard, solveSpeed)
     key = None
@@ -176,11 +187,11 @@ def difficulty_menu():
 
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if EASY_BUTTON.checkForInput(MENU_MOUSE_POS):
-                    play("easy")
+                    start_game("easy")
                 if MEDIUM_BUTTON.checkForInput(MENU_MOUSE_POS):
-                    play("medium")
+                    start_game("medium")
                 if HARD_BUTTON.checkForInput(MENU_MOUSE_POS):
-                    play("hard")
+                    start_game("hard")
 
         pygame.display.update()
 
