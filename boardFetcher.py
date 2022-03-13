@@ -311,7 +311,7 @@ hard_boards = [
 ]
 
 
-def retrieveRandomBoard_offline(difficulty):
+def retrieveRandomBoard_offline(difficulty):  # This method retrieve board from our offline boards above
     randomNum = random.randint(0, len(easy_boards)-1)
     if difficulty == "easy":
         return easy_boards[randomNum]

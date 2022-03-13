@@ -6,7 +6,7 @@ from auxiliary_functions import get_font
 from button import Button
 
 
-def no_connection(win, BG):
+def no_connection(win, BG):  # This screen rendered when there is no internet connection
     while True:
         win.blit(BG, (0, 0))
 
@@ -18,7 +18,7 @@ def no_connection(win, BG):
         RETRY_BUTTON = Button(image=pygame.image.load("assets/Hard Rect.png"), pos=(280, 450),
                               text_input="Retry", font=get_font(40), base_color="#d7fcd4", hovering_color="White")
 
-        OFFLINE_BUTTON = Button(image=pygame.image.load("assets/Options Rect.png"), pos=(300, 300),
+        OFFLINE_BUTTON = Button(image=pygame.image.load("assets/Medium Rect.png"), pos=(300, 300),
                                 text_input="Offline Mode", font=get_font(40), base_color="#d7fcd4",
                                 hovering_color="White")
 

@@ -49,21 +49,19 @@ def start_game(difficulty):
     loading_screen(win, BG)
     requestedBoard = boardFetcher.retrieveRandomBoard(difficulty)
 
-    if requestedBoard is None:
+    if requestedBoard is None:  # if no board has been returned then there is no internet connection
         operation = no_connection(win, BG)
-        if operation == "Retry":
+        if operation == "Retry":  # Try again online mode
             start_game(difficulty)
-        elif operation == "Offline_Mode":
+        elif operation == "Offline_Mode":  # Initiate offline mode
             play(win, boardFetcher.retrieveRandomBoard_offline(difficulty))
         return
 
-    else:
+    else:  # Initiate online mode
         play(win, requestedBoard)
 
 
-
 def play(win, requestedBoard):
-
     board = Grid(9, 9, 540, 540, win, requestedBoard, solveSpeed)
     key = None
     run = True
@@ -197,7 +195,6 @@ def difficulty_menu():
 
 
 def main_menu():
-
     global numOfLives
     global solveSpeed
 
