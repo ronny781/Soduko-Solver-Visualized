@@ -30,12 +30,12 @@
         <li><a href="#main-menu">Main Menu</a></li>
         <li><a href="#options-menu">Options Menu</a></li>
         <li><a href="#difficulty-menu">Difficulty Menu</a></li>
+        <li><a href="#no-internet-screen">No internet Screen</a></li>
         <li><a href="#game-screen">Game Screen</a></li>
          <li><a href="#game-over-screen">Game Over Screen</a></li>
         <li><a href="#win-screen">Win Screen</a></li>
       </ul>
-    </li>
-     </li>
+
   </ol>
 </details>
 
@@ -49,7 +49,9 @@ A sudoku game that includes GUI consist with multiple screens,</br> supports 3 d
 
 The game starts after the user choose difficulty level,</br> then the program sends <b> GET request </b> to a <a href="https://github.com/bertoort/sugoku">sudoku board generator API</a> in order to fetch a </br> random board with the corresponding difficulty level.</br> The response received as <b> JSON </b> object that then gets parsed into a two-dimensional array.
 
-
+<b> Edit: </b> </br>
+<b> Offline Mode added </b> - If there is no internet connection, then,<a href="#no-internet-screen"> according screen </a> will be rendered that would offer the user to play in offline mode.</br>
+The offline mode consists of 10 boards for each difficulty level, and will render a random one in accordance with the user request.
 
 ### Technologies used:
 
@@ -100,14 +102,17 @@ Therefore, there wasn't <b> any effort </b> of solving the board with efficient 
 ### Options Menu
 <img src="images/options menu screen.png" height="450px" width="450px">
 
-The number of "lives" (number of mistakes you can make) can be set between 1 to 7.</br>
-The speed of the auto solver visualization can be set between 1 to 5, where 5 is the fastest (without delay).</br>
+The number of "lives" (number of mistakes you can make) can be set between 1 and 7.</br>
+The speed of the auto solver visualization can be set between 1 and 5, where 5 is the fastest (without delay).</br>
 End game: if the player has run out of lives, then the <a href="#game-over-screen">game over screen</a> will be rendered.</br>
 Else if the player has solved the sudoku, then the <a href="#win-screen"> winning screen </a> will be rendered
 
 ### Difficulty Menu
 <img src="images/difficulty menu screen.png" height="450px" width="450px"></br>
 There are 3 options here: EASY, MEDIUM, HARD 
+
+### No Internet Screen
+<img src="/images/no internet screen.png" height="450px" width="450px"></br>
 
 ### Game screen
 <img src="images/game screen.png" height="450px" width="450px"></br>
