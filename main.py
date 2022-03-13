@@ -4,6 +4,7 @@ from Grid import Grid
 from auxiliary_functions import format_time, get_font
 from button import Button
 from screens.game_over import game_over
+from screens.loadingScreen import loading_screen
 from screens.options_menu import options_menu
 from screens.winning_screen import you_won
 
@@ -42,6 +43,7 @@ def redraw_window(win, board, time, lives):
 def play(difficulty):
     win = pygame.display.set_mode((600, 650))
     pygame.display.set_caption("Sudoku")
+    loading_screen(win, BG)
     board = Grid(9, 9, 540, 540, win, difficulty, solveSpeed)
     key = None
     run = True
