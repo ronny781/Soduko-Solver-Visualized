@@ -51,7 +51,7 @@ The game starts after the user choose difficulty level,</br> then the program se
 
 <b> Edit: </b> </br>
 
-<b> Offline Mode added: </b></br>If there is no internet connection, then,<a href="#no-internet-screen"> according screen </a> will be rendered that would </br> offer the user to play in offline mode.</br>
+<b> Offline Mode added: </b></br>If there is no internet connection, then, an<a href="#no-internet-screen"> according screen </a> will be rendered that would </br> offer the user to play in offline mode.</br>
 The offline mode consists of 10 boards for each difficulty level,</br>  and will render a random one in accordance with the user request.
 
 ### Technologies used:
